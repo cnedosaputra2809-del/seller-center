@@ -1,39 +1,280 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta name="theme-color" content=""> 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-   
-	<meta property="og:title" content="TikTok PayLater"> 
-	<meta property="og:description" content="TikTok PayLater adalah metode pembayaran dengan sistem “beli sekarang, bayar nanti” yang terhubung dengan layanan TikTok PayLater. Fitur ini memudahkan pengguna untuk berbelanja tanpa harus langsung membayar penuh di muka.">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>TikTok PayLater</title>
-<meta property="og:title" content="TikTok PayLater">
-<meta property="twitter:title" content="TikTok PayLater adalah metode pembayaran dengan sistem “beli sekarang, bayar nanti” yang terhubung dengan layanan TikTok PayLater. Fitur ini memudahkan pengguna untuk berbelanja tanpa harus langsung membayar penuh di muka.">
-<meta property="twitter:card" content="summary_large_image">
-<meta property="og:image:type" content="image/jpeg">
-<meta content="https://static.tildacdn.ink/tild3564-3764-4563-b834-346263626232/1000241780.jpg" property="og:image">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, maximum-scale=1">
- <link href="https://static.tildacdn.ink/tild3564-3764-4563-b834-346263626232/1000241780.jpg" rel="icon" type="image/x-icon">
-    <link href="https://static.tildacdn.ink/tild3564-3764-4563-b834-346263626232/1000241780.jpg" rel="apple-touch-icon">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-
-<meta property="twitter:card" content="summary_large_image">
-<meta property="og:image:type" content="image/jpeg">
-<meta content="https://static.tildacdn.ink/tild3564-3764-4563-b834-346263626232/1000241780.jpg" property="og:image">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok PayLater - Selamat Datang</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <style>
-        /* Mengatur seluruh halaman */
         body, html {
+            font-family: 'Poppins', sans-serif;
             height: 100%;
             margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #loader {
+            display: none !important;
+        }
+
+        #appCapsule {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .welcome-container {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #000 20%, #000 50%, #000 100%);
+            margin: 0 !important;
+            padding: 0 !important;
+            box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .welcome-content {
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        @keyframes logoGlow {
+            0% {
+                filter: drop-shadow(0 0 15px ) drop-shadow(0 0 30px ) drop-shadow(0 0 45px );
+            }
+            100% {
+                filter: drop-shadow(0 0 25px ) drop-shadow(0 0 50px rgba(96, 165, 250, 0.8)) drop-shadow(0 0 75px rgba(96, 165, 250, 0.6));
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .welcome-logo {
+            height: 100px;
+            width: auto;
+            margin-bottom: 30px;
+            object-fit: contain;
+            animation: logoGlow 3s ease-in-out infinite alternate, fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .welcome-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 0.2s;
+        }
+
+        .welcome-subtitle {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-bottom: 30px;
+            font-weight: 300;
+            line-height: 1.8;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 0.4s;
+        }
+
+        .welcome-divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #cbd5e1, transparent);
+            margin: 0 auto 30px;
+            border-radius: 2px;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        .welcome-description {
+            color: #cbd5e1;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 0.6s;
+        }
+
+        .welcome-features {
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #fff;
-            font-family: Arial, sans-serif;
+            gap: 40px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 0.8s;
         }
+
+        .feature-item {
+            text-align: center;
+            color: #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 80px;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .feature-item:nth-child(1) {
+            animation-delay: 0.9s;
+        }
+
+        .feature-item:nth-child(2) {
+            animation-delay: 1.1s;
+        }
+
+        .feature-item:nth-child(3) {
+            animation-delay: 1.3s;
+        }
+
+        .feature-item ion-icon {
+            font-size: 32px;
+            color: #cbd5e1;
+            margin-bottom: 10px;
+            display: block;
+            text-align: center;
+        }
+
+        .feature-item span {
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            display: block;
+            text-align: center;
+        }
+
+        .welcome-cta {
+            padding: 15px 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            letter-spacing: 1px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 1.5s;
+        }
+
+        .welcome-cta:hover {
+            background: rgba(96, 165, 250, 0.2);
+            border-color: #ffffff;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(96, 165, 250, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .welcome-content {
+                padding: 0 20px;
+            }
+
+            .welcome-title {
+                font-size: 2rem;
+            }
+
+            .welcome-subtitle {
+                font-size: 1rem;
+            }
+
+            .welcome-description {
+                font-size: 0.9rem;
+            }
+
+            .welcome-features {
+                gap: 20px;
+            }
+
+            .feature-item ion-icon {
+                font-size: 28px;
+            }
+
+            .feature-item span {
+                font-size: 0.8rem;
+            }
+
+            .welcome-cta {
+                padding: 12px 35px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <div class="welcome-content">
+            <img src="https://static.tildacdn.ink/tild3231-3365-4133-b563-613862383433/1000243209.jpg" alt="TikTok" class="welcome-logo">
+            
+            <h1 class="welcome-description">Selamat Datang</h1>
+            <h1 class="welcome-subtitle">di Layanan CS</h1>
+            
+            <div class="welcome-divider"></div>
+            
+            <h1 class="welcome-title">
+                TikTok PayLater
+            </h1>
+            
+            <div class="welcome-features">
+                <div class="feature-item">
+                    <ion-icon name="flash-outline"></ion-icon>
+                    <span>Cepat</span>
+                </div>
+                <div class="feature-item">
+                    <ion-icon name="shield-checkmark-outline"></ion-icon>
+                    <span>Aman</span>
+                </div>
+                <div class="feature-item">
+                    <ion-icon name="diamond-outline"></ion-icon>
+                    <span>Terpercaya</span>
+                </div>
+            </div>
+            
+            <p> </p>
+            <a href="https://wa.me/6281918555822" class="welcome-cta">Butuh Bantuan?</a>
+        </div>
+    </div>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d20aaf77e5b8318',t:'MTc3MTc4NjIxMw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="" data-cf-beacon='{"version":"","token":"","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
 
         /* Gaya untuk pop-up yang memenuhi layar */
         .popup {
